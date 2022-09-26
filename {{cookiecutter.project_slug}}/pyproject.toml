@@ -43,7 +43,7 @@ flake8-debugger = "*"
 flake8-eradicate = "*"
 flake8-logging-format = "*"
 isort = "*"
-mkdocstrings = "*"
+mkdocstrings = {version = "^0.19.0", extras = ["python"]}
 mkdocs-material = "8.4.4"
 mypy = "*"
 pep8-naming = "*"
@@ -55,6 +55,8 @@ pytest-cov = "*"
 python-kacl = "*"
 pyupgrade = "*"
 tryceratops = "*"
+
+[tool.poetry.group.dev.dependencies]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
