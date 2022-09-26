@@ -1,10 +1,10 @@
 # {{ cookiecutter.project_name }}
 
+{% if cookiecutter.service_or_package == "package" %}
 [![PyPI](https://img.shields.io/pypi/v/{{ cookiecutter.project_slug }}?style=flat-square)](https://pypi.python.org/pypi/{{ cookiecutter.project_slug }}/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/{{ cookiecutter.project_slug}}?style=flat-square)](https://pypi.python.org/pypi/{{ cookiecutter.project_slug }}/)
 [![PyPI - License](https://img.shields.io/pypi/l/{{ cookiecutter.project_slug }}?style=flat-square)](https://pypi.python.org/pypi/{{ cookiecutter.project_slug }}/)
-[![Coookiecutter - Wolt](https://img.shields.io/badge/cookiecutter-Wolt-00c2e8?style=flat-square&logo=cookiecutter&logoColor=D4AA00&link=https://github.com/woltapp/wolt-python-package-cookiecutter)](https://github.com/woltapp/wolt-python-package-cookiecutter)
-
+{% endif %}
 
 ---
 
@@ -12,23 +12,26 @@
 
 **Source Code**: [https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
 
+{% if cookiecutter.service_or_package == "package" -%}
 **PyPI**: [https://pypi.org/project/{{ cookiecutter.project_slug }}/](https://pypi.org/project/{{ cookiecutter.project_slug }}/)
-
+{%- endif -%}
 ---
 
 {{ cookiecutter.project_short_description }}
 
+{% if cookiecutter.service_or_package == "package" -%}
 ## Installation
 
 ```sh
 pip install {{ cookiecutter.project_slug }}
 ```
+{%- endif -%}
 
 ## Development
 
 * Clone this repository
 * Requirements:
-  * [Poetry](https://python-poetry.org/)
+  * [Poetry](https://python-poetry.org/) {{cookiecutter.poetry_version}}
   * Python 3.7+
 * Create a virtual environment and install the dependencies
 
@@ -45,7 +48,7 @@ poetry shell
 ### Testing
 
 ```sh
-pytest
+poetry run pytest
 ```
 
 ### Documentation
@@ -86,7 +89,3 @@ Or if you want e.g. want to run all checks manually for all files:
 ```sh
 pre-commit run --all-files
 ```
-
----
-
-This project was generated using the [wolt-python-package-cookiecutter](https://github.com/woltapp/wolt-python-package-cookiecutter) template.

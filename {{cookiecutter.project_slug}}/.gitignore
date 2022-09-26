@@ -81,3 +81,6 @@ venv.bak/
 .vscode/*
 ### Include debug configurations
 !/.vscode/*.default.json
+
+# Python requirements - no need of such file because of using poetry
+/requirements.txt

@@ -18,7 +18,17 @@ def handle_vscode_debug_configs():
         remove(os.path.join(os.getcwd(), ".vscode"))
 
 
-HANDLERS = [handle_vscode_debug_configs]
+def handle_service_and_package_specifics():
+    is_service = "{{cookiecutter.service_or_package}}" == "service"
+
+    if not is_service:
+        remove(os.path.join(os.getcwd(), "Dockerfile"))
+        remove(os.path.join(os.getcwd(), ".dockerignore"))
+
+    is_package = "{{cookiecutter.service_or_package}}" == "package"
+
+
+HANDLERS = [handle_vscode_debug_configs, handle_service_and_package_specifics]
 
 for handler in HANDLERS:
     handler()
