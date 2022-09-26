@@ -1,5 +1,6 @@
 name: Update project structure
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"  # at the end of every day
 {% raw %}
