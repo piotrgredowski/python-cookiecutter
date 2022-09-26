@@ -1,5 +1,5 @@
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:
       - id: check-ast
@@ -7,19 +7,22 @@ repos:
       - id: check-merge-conflict
       - id: check-case-conflict
       - id: check-docstring-first
-      - id: check-json
       - id: check-yaml
       - id: debug-statements
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: mixed-line-ending
--   repo: local
+  - repo: https://gitlab.com/bmares/check-json5
+    rev: v1.0.0
+    hooks:
+      - id: check-json5
+  - repo: local
     hooks:
       - id: autoflake
         name: autoflake
         entry: poetry run autoflake -r -i --remove-all-unused-imports --remove-unused-variables
         language: system
-        types: [ python ]
+        types: [python]
       - id: isort
         name: isort
         entry: poetry run isort
