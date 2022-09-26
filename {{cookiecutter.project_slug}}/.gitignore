@@ -76,5 +76,8 @@ venv.bak/
 .mypy_cache/
 
 # IDEs
+## VSCode
 .idea/
-.vscode/
+.vscode/*
+### Include debug configurations
+!/.vscode/*.default.json
