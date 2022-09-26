@@ -73,6 +73,7 @@ addopts = """\
     --cov {{ cookiecutter.package_name }} \
     --cov tests \
     --cov-report term-missing \
+    --doctest-modules \
     --no-cov-on-fail \
 """
 
