@@ -32,18 +32,18 @@ jobs:
           SSH_PORT: ${{ secrets.PORT }}
       - name: Clone repo
         run: |{% endraw %}
-          ssh production 'cd ~/Coding/ && git clone git@github.com:{{cookiecutter.github_username}}/{{cookiecutter.project_name}}.git | true'
+          ssh production 'cd ~/Coding/ && git clone git@github.com:{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}.git | true'
 {% raw %}
       - name: Reset to latest main
         if: ${{ always() }}|{% endraw %}
         run: |
-          ssh production 'cd ~/Coding/{{cookiecutter.project_name}} && git fetch && git reset --hard origin/main'
+          ssh production 'cd ~/Coding/{{cookiecutter.project_slug}} && git fetch && git reset --hard origin/main'
       - name: Stop containers
         run: |
-          ssh production 'docker ps -q --filter ancestor="{{cookiecutter.project_name}}" | xargs -r docker stop'
+          ssh production 'docker ps -q --filter ancestor="{{cookiecutter.project_slug}}" | xargs -r docker stop'
       - name: Build image
         run: |
-          ssh production 'cd ~/Coding/{{cookiecutter.project_name}} && docker build . -t {{cookiecutter.project_name}}'
+          ssh production 'cd ~/Coding/{{cookiecutter.project_slug}} && docker build . -t {{cookiecutter.project_slug}}'
       - name: Start container
         run: |
-          ssh production 'docker run -it -d --net=host {{cookiecutter.project_name}}:latest'
+          ssh production 'docker run -it -d --net=host {{cookiecutter.project_slug}}:latest'
