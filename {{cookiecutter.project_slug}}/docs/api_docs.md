@@ -5,4 +5,5 @@
 {%- endif -%}
 {% if cookiecutter.service_or_package == 'service' -%}
 :::src
+:::src.main
 {%- endif -%}
