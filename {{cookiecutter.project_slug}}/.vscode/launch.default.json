@@ -10,7 +10,12 @@
       "name": "{{cookiecutter.project_slug}} debugger",
       "type": "python",
       "request": "launch",
+      {% if cookiecutter.service_or_package == 'service' -%}
+      "module": "src.main",
+      {%- endif -%}
+      {% if cookiecutter.service_or_package == 'package' -%}
       "module": "src.{{cookiecutter.package_name}}",
+      {%- endif -%}
       "env": {},
       "args": []
     },
