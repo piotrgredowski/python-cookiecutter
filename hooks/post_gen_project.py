@@ -25,7 +25,6 @@ def handle_service_and_package_specifics():
         remove(os.path.join(os.getcwd(), "Dockerfile"))
         remove(os.path.join(os.getcwd(), ".dockerignore"))
         remove(os.path.join(os.getcwd(), "src", "main.py"))
-        remove(os.path.join(os.getcwd(), "src", "main.py"))
         remove(os.path.join(os.getcwd(), "{{cookiecutter.project_slug}}/.github/workflows/deploy_service.yml"))
 
 
@@ -33,8 +32,8 @@ def handle_service_and_package_specifics():
 
     if not is_package:
         remove(os.path.join(os.getcwd(), "src", "{{cookiecutter.package_name}}"))
-        remove(os.path.join(os.getcwd(), "{{cookiecutter.project_slug}}/.github/workflows/release.yml"))
-        remove(os.path.join(os.getcwd(), "{{cookiecutter.project_slug}}/.github/workflows/draft_release.yml"))
+        remove(os.path.join(os.getcwd(), ".github/workflows/release.yml"))
+        remove(os.path.join(os.getcwd(), ".github/workflows/draft_release.yml"))
 
 
 HANDLERS = [handle_vscode_debug_configs, handle_service_and_package_specifics]
