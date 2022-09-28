@@ -1,12 +1,10 @@
 default_context:
-  author_name: 'Piotr Grędowski'
-  author_email: 'piotrgredowski@gmail.com'
-  github_username: 'piotrgredowski'
-  project_name: 'demo-automatyzacja.io'
-  project_slug: "{{ cookiecutter.project_name.lower().replace(' ', '-') }}"
+  author_name: 'John Doe'
+  author_email: 'john.doe@mail.com'
+  github_username: 'johndoe'
+  project_name: 'example-project'
+  project_short_description: 'A short description of the project'
   service_or_package: 'service'
-  package_name: "{{ cookiecutter.project_slug.replace('-', '_') }}"
-  project_short_description: 'This is just a demo service for automatyzacja.io conference.'
   add_vscode_debug_configurations: '1'
   python_version: '3.9'
   poetry_version: '1.2.1'
